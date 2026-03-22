@@ -1,42 +1,34 @@
-# ai-dev-exp-template
+# Day028 — Slot Checklist Planner
 
-Vite-based single-page template for `ai-dev-day-XXX` repositories.
+> 時間枠とチェックリストを一体化した実行計画プランナー。（話題:GitHub Trending (A）
+>
+> Complexity Tier: medium
+>
+> Selected Components: none
+>
+> Family / Mechanic: slot_planning / slot_assignment_with_check
+>
+> Input -> Output: task_cards -> checklist_timeline
+>
+> Audience Promise: better_execution_consistency
 
-## Required meta.json fields
+## 使い方
 
-- `day` (e.g. `Day001`)
-- `title`
-- `description`
-- `genre`
-- `theme`
-- `story_summary`
+1. ページを開く
+2. タスクカードを入力する
+3. 「計画化する」を実行する
+4. スロットチェックリストを確認して必要に応じて再入力する
 
-## Theme behavior
+## Story
 
-- `src/themes.js` defines 8 visual themes.
-- Runtime applies `meta.json.theme` using CSS variables.
-- Day repos should set `theme` with a day-seeded deterministic selector.
+- [制作ストーリー](./STORY.md)
+- Complexity hint: Add 2 safe enhancement components from selected_components while keeping the app single-page and stable.
+- Publish hook: 未完了を次枠へ自動繰越
 
-## Component Packs (tiered build)
+## Demo
 
-- Template reads `complexity_tier` / `selected_components` from `meta.json`.
-- `selected_components` is missing: runs as small tier baseline with all packs OFF.
-- Unknown component names are ignored safely.
-- Each pack can be toggled independently and app core flow still works.
+🌐 [GitHub Pages](https://ryo909.github.io/ai-dev-day-028/)
 
-Supported packs:
+---
 
-- `reason_panel`
-- `sample_inputs`
-- `local_storage`
-- `comparison_view`
-- `history_panel`
-- `export_suite`
-- `step_ui`
-
-### Quality/Fallback integration
-
-- Every pack root includes `data-quality-marker="<pack_name>"` for evaluator detection.
-- Runtime manifest is published to `window.__COMPONENT_PACKS__` and script node `#componentPackManifest`.
-- Static fallback manifest exists at `public/component-pack-manifest.json`.
-- Medium/Large can increase visual depth safely by selecting more packs without changing core logic.
+Day028 / #100日開発
